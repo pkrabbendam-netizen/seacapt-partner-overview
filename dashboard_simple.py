@@ -25,13 +25,52 @@ def apply_styles() -> None:
             --seacapt-green: #0d6657;
             --seacapt-blue: #14324a;
             --seacapt-soft: #f3f8f7;
+            --seacapt-page: #f7fbfa;
             --seacapt-line: #d9e5e2;
-            --seacapt-muted: #5b6b73;
+            --seacapt-muted: #4f6670;
+            --seacapt-text: #203036;
+            --seacapt-card: #ffffff;
+            --seacapt-card-soft: #eef7f4;
+        }
+        .stApp {
+            background: var(--seacapt-page);
+            color: var(--seacapt-text);
         }
         .block-container {
             max-width: 1060px;
             padding-top: 2rem;
             padding-bottom: 3rem;
+            color: var(--seacapt-text);
+        }
+        .stMarkdown,
+        .stMarkdown p,
+        .stMarkdown li,
+        .stMarkdown span,
+        .stText,
+        p,
+        li {
+            color: var(--seacapt-text);
+        }
+        .stMarkdown h1,
+        .stMarkdown h2,
+        .stMarkdown h3,
+        .stMarkdown h4 {
+            color: var(--seacapt-blue);
+        }
+        [data-testid="stCaptionContainer"],
+        [data-testid="stCaptionContainer"] p,
+        [data-testid="stCaptionContainer"] div {
+            color: var(--seacapt-muted);
+            opacity: 1;
+        }
+        [data-testid="stAlert"] {
+            background: #edf7f4;
+            color: var(--seacapt-text);
+            border-color: var(--seacapt-line);
+        }
+        [data-testid="stAlert"] p,
+        [data-testid="stAlert"] div {
+            color: var(--seacapt-text);
         }
         .simple-hero {
             padding: 1.3rem 1.5rem;
@@ -42,8 +81,23 @@ def apply_styles() -> None:
         }
         .simple-hero h1 {
             color: var(--seacapt-blue);
-            margin-bottom: 0.45rem;
+            margin-bottom: 0.35rem;
             line-height: 1.12;
+            font-size: 3rem;
+            letter-spacing: 0.02em;
+        }
+        .simple-hero .slogan {
+            color: var(--seacapt-green);
+            font-size: 1.75rem;
+            font-weight: 750;
+            line-height: 1.2;
+            margin: 0 0 0.35rem 0;
+        }
+        .simple-hero .tagline {
+            color: var(--seacapt-blue);
+            font-size: 1.18rem;
+            font-weight: 600;
+            margin: 0 0 0.85rem 0;
         }
         .simple-hero p {
             color: var(--seacapt-muted);
@@ -54,20 +108,26 @@ def apply_styles() -> None:
             border: 1px solid var(--seacapt-line);
             border-radius: 14px;
             padding: 1rem 1.1rem;
-            background: #ffffff;
+            background: var(--seacapt-card);
+            color: var(--seacapt-text);
             height: 100%;
+            box-shadow: 0 1px 4px rgba(20, 50, 74, 0.06);
         }
         .note-card h3 {
             color: var(--seacapt-blue);
             margin-top: 0;
             font-size: 1.05rem;
         }
+        .note-card p {
+            color: var(--seacapt-text);
+            margin-bottom: 0;
+        }
         .flow-step {
             text-align: center;
             border: 1px solid var(--seacapt-line);
             border-radius: 14px;
             padding: 0.8rem 0.55rem;
-            background: var(--seacapt-soft);
+            background: var(--seacapt-card-soft);
             font-weight: 650;
             color: var(--seacapt-blue);
             min-height: 4.6rem;
@@ -102,8 +162,10 @@ def render_header() -> None:
         st.markdown(
             """
             <div class="simple-hero">
-                <h1>SEACAPT — Exploring CO₂ removal from seawater and storage as carbonate minerals</h1>
-                <p>
+                <h1>SEACAPT</h1>
+                <p class="slogan">We do nature, only quicker</p>
+                <p class="tagline">Working with the ocean to explore a new route for carbon removal.</p>
+                <p class="hero-intro">
                     SEACAPT is an early-stage R&D project. The goal is to test whether a carefully
                     controlled land-based process could help remove CO₂ from seawater and store part
                     of that carbon in solid carbonate minerals.
