@@ -13,7 +13,7 @@ import streamlit as st
 
 ROOT = Path(__file__).resolve().parent
 LOGO_PATH = ROOT / "assets" / "seacapt_logo.jpg"
-SIMPLE_PROCESS_FLOW_PATH = ROOT / "assets" / "seacapt_simple_process_flow.png"
+SIMPLE_OVERVIEW_PATH = ROOT / "assets" / "simple_overview.png"
 
 
 def apply_styles() -> None:
@@ -203,21 +203,19 @@ def render_simple_flow() -> None:
 def render_process_illustration() -> None:
     """Render the public-safe simple process illustration when available."""
     st.markdown("### A simple visual overview")
-    caption = (
-        "Simple overview of the SEACAPT idea: seawater is treated in a controlled process to "
-        "explore whether CO₂ can be removed and stored in mineral form, after which safe water "
-        "can return to the ocean."
-    )
-    if SIMPLE_PROCESS_FLOW_PATH.exists():
-        st.image(
-            str(SIMPLE_PROCESS_FLOW_PATH),
-            caption=caption,
-            width="stretch",
-        )
+    caption = "Conceptual overview of the SEACAPT process."
+    if SIMPLE_OVERVIEW_PATH.exists():
+        _, image_col, _ = st.columns([1, 8, 1])
+        with image_col:
+            st.image(
+                str(SIMPLE_OVERVIEW_PATH),
+                caption=caption,
+                width=650,
+            )
     else:
         st.info(
             "A simple public process illustration can be shown here once "
-            "`assets/seacapt_simple_process_flow.png` is available in the repository."
+            "`assets/simple_overview.png` is available in the repository."
         )
         st.caption(caption)
 
