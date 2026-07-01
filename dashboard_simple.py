@@ -357,11 +357,29 @@ def render_contact() -> None:
     """Render the contact section."""
     st.markdown("### Contact")
     st.write(
-        "SEACAPT is founder-led and currently looking for potential R&D partners, technical reviewers and "
+        "SEACAPT is founder-led and looking for R&D partners, technical reviewers and "
         "organisations interested in careful early-stage marine carbon removal validation."
     )
-    st.info(
-        "For now, contact details can be added here when the public version is ready to share."
+    st.write(
+        "For questions, technical review or potential collaboration, please contact:"
+    )
+    st.markdown(
+        """
+        **Peter Krabbendam**  
+        Co-founder, SEACAPT B.V. i.o.  
+        Industrial gases and decarbonisation applications  
+        Email: [pkrabbendam@gmail.com](mailto:pkrabbendam@gmail.com)
+
+        **Fred Bergwerff**  
+        Co-founder, SEACAPT B.V. i.o.  
+        Experimental validation and process development  
+        Email: [FB@dutchgcc.com](mailto:FB@dutchgcc.com)
+        """
+    )
+    st.write(
+        "SEACAPT welcomes conversations with marine chemistry experts, laboratory partners, "
+        "equipment suppliers, environmental reviewers, industrial host sites and organisations "
+        "interested in responsible carbon removal innovation."
     )
 
 
